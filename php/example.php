@@ -38,7 +38,7 @@ $hmac = gc_hmacsha1($message . ' ' . $timestamp, GC_SECRET);
 
 <script type="text/javascript">
 var gc_config = function() {
-    this.page.remote_auth_s3 = "<?php echo "$message $hmac $timestamp"; ?>";
-    this.page.api_key = "<?php echo GC_PUBLIC; ?>";
+    this.page.auth = "<?php echo "$message $hmac $timestamp"; ?>";
+    this.page.pubKey = "<?php echo GC_PUBLIC; ?>";
 }
 </script>

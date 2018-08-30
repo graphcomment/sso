@@ -7,6 +7,7 @@ $data = array(
         "id" => $user["id"], // required unique
         "username" => $user["username"],// required unique
         "email" => $user["email"],// required unique
+        "language" => $user["language"], //(optionnal) default value : en (codes ISO 639-1)
         "bio" => $user["bio"],// (optionnal) description
         "picture" => $user["picture"]// (optionnal) full url only
     );

@@ -19,7 +19,7 @@ namespace Graphcomment
         /// <param name="user_language">User's language, defined by ISO 639-1</param>
         /// <param name="avatar_url">FULL URL of the avatar image</param>
         /// <returns>A string containing the signed payload</returns>
-        public static string GetPayload(string user_id, string user_name, string user_email, string user_language = "", string avatar_url = "")
+        public static string GetSsoData(string user_id, string user_name, string user_email, string user_language = "", string avatar_url = "")
         {
             var userdata = new
             {
@@ -31,21 +31,21 @@ namespace Graphcomment
             };
 
             string serializedUserData = new JavaScriptSerializer().Serialize(userdata);
-            return GeneratePayload(serializedUserData);
+            return GenerateSsoData(serializedUserData);
         }
 
         /// <summary>
         /// Method to log out a user from SSO
         /// </summary>
-        /// <returns>A signed, empty payload string</returns>
+        /// <returns>A signed, empty sso-data string</returns>
         public static string LogoutUser()
         {
             var userdata = new { };
             string serializedUserData = new JavaScriptSerializer().Serialize(userdata);
-            return GeneratePayload(serializedUserData);
+            return GenerateSsoData(serializedUserData);
         }
 
-        private static string GeneratePayload(string serializedUserData)
+        private static string GenerateSsoData(string serializedUserData)
         {
             byte[] userDataAsBytes = Encoding.ASCII.GetBytes(serializedUserData);
 

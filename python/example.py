@@ -24,7 +24,7 @@ def get_graphcomment_sso(user):
     # generate our hmac signature
     sig = hmac.HMAC(GC_SECRET, '%s %s' % (message, timestamp), hashlib.sha1).hexdigest()
 
-# return a script tag to insert the sso message
+    # return a script tag to insert the sso message
     return """<script type="text/javascript">
     var gc_config = function() {
         this.page.auth = "%(message)s %(sig)s %(timestamp)s";

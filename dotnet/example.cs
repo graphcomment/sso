@@ -65,7 +65,7 @@ namespace Graphcomment
                 byte[] hashedMessage = hmac.ComputeHash(messageAndTimestampBytes);
 
                 // Put it all together into the final payload
-                return Message + " " + ByteToString(hashedMessage) + " " + Timestamp;
+                return Message + " " + ByteToString(hashedMessage).ToLower() + " " + Timestamp;
             }
         }
 
